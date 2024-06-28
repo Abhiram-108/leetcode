@@ -15,6 +15,7 @@ public:
                 }
                 left++;
             }
+            if(baskets.size()<=2)
             ans = max(ans, right - left + 1);
         }
 
