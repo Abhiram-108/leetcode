@@ -15,7 +15,7 @@ public:
     vector<vector<int>> permuteUnique(vector<int>& nums) {
         vector<vector<int>> output;
         vector<int> temp = nums;
-        sort(temp.begin(), temp.end());
+        // sort(temp.begin(), temp.end());
         set<vector<int>> set;
         permuteUnique(nums, set, temp, 0);
         for(auto it : set){
