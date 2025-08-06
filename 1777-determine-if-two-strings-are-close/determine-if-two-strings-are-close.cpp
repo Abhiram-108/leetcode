@@ -17,10 +17,7 @@ public:
                 return false;  // if word2 has a char not in word1
         }
 
-        // Compare the set of keys (characters)
-        if (mp1.size() != mp2.size())
-            return false;
-
+        
         // Compare the frequency multisets
         multiset<int> freq1, freq2;
         for (auto [ch, count] : mp1) {
