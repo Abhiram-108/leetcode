@@ -10,7 +10,7 @@ class Solution {
         for(auto it:adj[node]){
             if(!vis[it]){
                 // path.push_back(it);
-                vis[it]=1;
+                // vis[it]=1;
                 dfs(it,dest,ans,path,adj,vis);
             }
             vis[it]=0;
