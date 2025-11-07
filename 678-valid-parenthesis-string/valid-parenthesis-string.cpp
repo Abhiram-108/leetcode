@@ -34,30 +34,30 @@ public:
     //     }
 
     //     return true;
-
-    int mini=0,maxi=0;
-    int n=s.size();
-    for(int i=0;i<n;i++){
-        if(s[i]=='(')
-        {
-            mini=mini+1;
-            maxi+=1;
-        }
-        else if(s[i]==')'){
-            maxi-=1;
-            mini-=1;
-        }
-        else{
-            mini-=1;
-            maxi+=1;
-        }
-        if(mini<0)
-        mini=0;
-        if(maxi<0)
-        return 0;
+int n=s.size();
+   int l=0;
+   int r=0;
+   for(int i=0;i<n;i++){
+    if(s[i]=='('){
+        l++;
+        r++;
     }
-    return mini==0;
-       
+    if(s[i]=='*'){
+        l--;
+        r++;
+    }
+    if(s[i]==')'){
+        l--;
+        r--;
+    }
+
+    if(l<0)
+    l=0;
+    if(r<0)
+    return false;
+
+   }
+       return l==0;
      
         
     }
