@@ -13,9 +13,9 @@ class Solution {
                 vis[it]=1;
                 dfs(it,dest,ans,path,adj,vis);
                 vis[it]=0;
+           path.pop_back(); 
             }
             // vis[it]=0;
-           path.pop_back(); 
         }
 
     }
