@@ -6,15 +6,16 @@ public:
         vector<bool> visited(n, 0);
 
         queue<int>q;
+        visited[0]=1;
         q.push(0);
         while(q.size()){
             int node=q.front();
             q.pop();
-        visited[node] = 1;
+        // visited[node] = 1;
 
             for(auto it:rooms[node]){
                 if(!visited[it]){
-                    // vis[it]=1;
+                    visited[it]=1;
                     q.push(it);
                 }
             }
