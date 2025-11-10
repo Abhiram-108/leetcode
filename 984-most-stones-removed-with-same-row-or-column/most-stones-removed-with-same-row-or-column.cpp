@@ -1,31 +1,38 @@
 class Solution {
-    unordered_map<int, int> parent;
+     map<int,int>parent;
+     
+     int find(int x){
+        if(parent.find(x)==parent.end())
+        return parent[x]=x;
 
-    int find(int x) {
-        if (parent.count(x) == 0)
-            parent[x] = x;
-        if (parent[x] != x)
-            parent[x] = find(parent[x]);
-        return parent[x];
-    }
-
-    void unite(int x, int y) {
-        parent[find(x)] = find(y);
-    }
+        return parent[x]==x ? x:find(parent[x]);
+     }
+  
 
 public:
     int removeStones(vector<vector<int>>& stones) {
-        for (auto& stone : stones) {
-            int row = stone[0];
-            int col = ~stone[1]; // bitwise negation to avoid collision
-            unite(row, col);
-        }
+       int n=stones.size();
 
-        unordered_set<int> uniqueRoots;
-        for (auto& stone : stones) {
-            uniqueRoots.insert(find(stone[0]));
-        }
+       for(auto it:stones){
+        int first=it[0];
+        int second=~it[1];
 
-        return stones.size() - uniqueRoots.size();
+        int pa=find(first);
+        int pb=find(second);
+
+        if(pa!=pb)
+        parent[pb]=pa;
+       }
+
+       set<int>st;
+       for(auto it:stones){
+        st.insert(find(parent[~it[1]]));
+       }
+
+       return stones.size()-st.size();
+      
+       
+
+
     }
 };
