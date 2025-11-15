@@ -5,7 +5,7 @@ public:
         int m=matrix.size();
         int n=matrix[0].size();
 
-        vector<vector<int>>vis(m,vector<int>(n,0));
+
 
         queue<pair<int,int>>q;
 
